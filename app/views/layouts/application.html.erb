@@ -1,15 +1,48 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>IdeaFactory</title>
+    <title>Idea Factory</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
+</head>
 
-  <body>
-    <%= yield %>
+<body>
+    <header>
+   
+     <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">Idea Factory</a>
+      
+      <ul class="navbar-nav ml-auto">
+       <%= link_to 'Home', root_path, class: "nav-item nav-link form-inline" %>  
+
+       <%= link_to 'New Idea', new_idea_path, class: "nav-item nav-link form-inline" %> 
+
+       <%= link_to 'Ideas', ideas_path, class: "nav-item nav-link form-inline" %>
+
+       </ul>
+
+     </nav>
+
+
+     
+  </body>
+    </header>
+
+    <div class="card-body">
+      <div class="card mb-4"" style="padding: 15px">
+        <% flash.each do |type, message| %>
+          <div class="alert alert-<%= type %>">
+          <%= message %>
+        </div>
+      <% end %>
+      <%= yield %>
+      </div>
+    </div>
+    </main>
   </body>
 </html>
