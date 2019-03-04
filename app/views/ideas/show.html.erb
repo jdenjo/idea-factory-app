@@ -2,15 +2,75 @@
 
 <p><%= @idea.body %></p>
 
+<p>
+  <small>
+    Posted by <%= @idea.user&.full_name || 'DELETED' %>
+    <%= time_ago_in_words(@idea.created_at) %> ago
+  </small>
+
+</p>
+
 <div>
 
+<div>
+  <% if can?(:update, @idea) %>
       <%= link_to "Edit", 
       edit_idea_path(@idea.id), 
       class: "btn btn-sm btn-outline-primary" %>
+  <% end  %>
+  
+  <% if can?(:destroy, @idea) %>
 
       <%= link_to "Delete", 
         idea_path(@idea.id), 
         method: :delete, data: { confirm: "Are you sure?" }, 
         class: "btn btn-sm btn-outline-primary" %>
-
+  <% end %>
 </div>
+<br>
+
+<%= form_with(model: [@idea, @review], local: true) do |f| %>
+   <% if @review.errors.present? %>
+     <p class="form-errors">
+       <%= @review.errors.full_messages.join(", ") %>
+     </p>
+   <% end %>
+
+   <div class="form-group">
+     <%= f.text_area(
+       :body,
+       cols: 50,
+       rows: 5,
+       placeholder: "What are your thoughts?",
+       class: "form-control"
+     ) %>
+   </div>
+   <%= f.submit "Submit" %>
+ <% end %>
+<br>
+
+ <ul>
+   <% @reviews.each do |review| %>
+     <li>
+       <p>
+         <%= review.body %> <br>
+          <small>
+           Commented by <%= review.user&.full_name || 'DELETED' %>
+            <%= time_ago_in_words(review.created_at) %> ago
+          <% if can?(:update, review) %>
+             <%=
+               link_to(
+                 "Delete",
+                 idea_review_path(@idea, review),
+                 method: :delete,
+                 data: {
+                   confirm: "Are you sure?"
+                 }
+               )
+             %>
+          <% end %>
+         </small>
+       </p>
+     </li>
+   <% end %>
+ </ul>

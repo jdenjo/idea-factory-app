@@ -3,6 +3,7 @@
       <h4><%= link_to idea.title, idea_path(idea.id)  %> </h4>
       <p><%= idea.body %> </p>
       <small>
+        Answered by <%= idea.user&.full_name || 'DELETED' %>
         Created <%= time_ago_in_words(idea.created_at) %> ago
       </small>
     </div>
