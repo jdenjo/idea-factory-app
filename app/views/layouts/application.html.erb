@@ -7,6 +7,9 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+
   </head>
 </head>
 
@@ -23,18 +26,18 @@
       
       <ul class="navbar-nav ml-auto">
 
-       <%= link_to 'New Idea', new_idea_path, class: "nav-item nav-link form-inline" %> 
+       <%= link_to 'New Idea |', new_idea_path, class: "nav-item nav-link form-inline" %> 
 
-       <%= link_to 'All Ideas', ideas_path, class: "nav-item nav-link form-inline" %>
+       <%= link_to 'All Ideas |', ideas_path, class: "nav-item nav-link form-inline" %>
        
 
        <% if user_signed_in? %>
-         <span class="nav-item  form-inline"> Hello&nbsp<%= current_user.full_name %> </span> 
+         <span class="nav-item  form-inline"> Hello&nbsp<%= current_user.full_name %> |</span> 
 
           <%= link_to "Sign Out", sessions_path, method: :delete, data: {confirm: "Are you sure you want to sign out?"}, class: "nav-item nav-link form-inline" %> 
        <% else %>
 
-         <%= link_to "Sign In", new_sessions_path, class: "nav-item nav-link form-inline" %>
+         <%= link_to "Sign In |", new_sessions_path, class: "nav-item nav-link form-inline" %>
 
          <%= link_to "Sign Up", new_user_path, class: "nav-item nav-link form-inline" %>
 

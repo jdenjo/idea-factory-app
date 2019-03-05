@@ -1,22 +1,20 @@
-<h1><%= @idea.title %></h1>
+<div class="idea-title"><%= @idea.title %></div>
 
-<p><%= @idea.body %></p>
+<div class="idea-body"><%= @idea.body %>
+<br>
 
-<p>
   <small>
     Posted by <%= @idea.user&.full_name || 'DELETED' %>
     <%= time_ago_in_words(@idea.created_at) %> ago
   </small>
 
-</p>
+</div>
 
-<div>
-
-<div>
+<div class="idea-edit-delete">
   <% if can?(:update, @idea) %>
       <%= link_to "Edit", 
       edit_idea_path(@idea.id), 
-      class: "btn btn-sm btn-outline-primary" %>
+     class: "btn btn-lg btn-outline-dark" %>
   <% end  %>
   
   <% if can?(:destroy, @idea) %>
@@ -24,10 +22,9 @@
       <%= link_to "Delete", 
         idea_path(@idea.id), 
         method: :delete, data: { confirm: "Are you sure?" }, 
-        class: "btn btn-sm btn-outline-primary" %>
+        class: "btn btn-lg btn-outline-dark" %>
   <% end %>
 </div>
-<br>
 
 <%= form_with(model: [@idea, @review], local: true) do |f| %>
    <% if @review.errors.present? %>
@@ -45,11 +42,11 @@
        class: "form-control"
      ) %>
    </div>
-   <%= f.submit "Submit" %>
+   <%= f.submit "Submit Comment", class: "btn btn-lg btn-outline-dark" %>
  <% end %>
 <br>
 
- <ul>
+ <ul class="comment-list">
    <% @reviews.each do |review| %>
      <li>
        <p>
