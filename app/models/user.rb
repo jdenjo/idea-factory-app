@@ -3,7 +3,6 @@ class User < ApplicationRecord
   has_many :reviews
 
   has_secure_password
-  #this provides user authentication with bycrpt
 
   validates :email, presence: true,
                     uniqueness: true,
