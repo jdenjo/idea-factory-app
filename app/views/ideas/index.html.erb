@@ -1,7 +1,7 @@
 <% @ideas.each do |idea| %>
     <div class="idea-card">
       <div class="idea-title">
-        <i class="plus fas fa-plus"></i>
+        <i class="far fa-plus-square"></i>
         <%= link_to idea.title, idea_path(idea.id)  %> 
       </div>
       <div class="idea-body" style="display: none">
