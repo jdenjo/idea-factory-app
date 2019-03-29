@@ -51,12 +51,13 @@ padding: 20px;
     color: white
 }
 
-.article{
+.article-contents{
     padding-top: 25px;
+
 }
 
 .navbar .navbar-nav .nav-link{
-    font-size: 20px
+    font-size: 20px;
 }
 
  .form-inline{
@@ -73,6 +74,9 @@ padding: 20px;
 .navbar-nav a:hover  { color: #fff !important; }
 .navbar-nav a  { color: #fff !important; }
 
+.sign-up a:hover  { color: #fff !important; }
+.sign-up a  { color: #fff !important; }
+
  .container{
      border: black;
  }
@@ -82,7 +86,7 @@ padding: 20px;
  }
 
  header{
-     padding: 30px;
+     padding: 10px;
      background-color: grey
  }
 

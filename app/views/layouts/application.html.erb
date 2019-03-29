@@ -13,14 +13,14 @@
   <header>
   <div class="top-nav">
       <nav class="navbar navbar-expand-lg">
-        <a class="nav-item nav-link form-inline"" href="/ideas">
+        <a class="nav-item nav-link form-inline"" href="/">
         <div class="brand">
           <i class="far fa-lightbulb"></i> STARTUP IDEA FACTORY
         </div>
 
         </a>
         <ul class="navbar-nav ml-auto">
-          <%= link_to 'New Idea |', new_idea_path, class: "nav-item nav-link form-inline" %>
+          <%= link_to 'New Idea  |', new_idea_path, class: "nav-item nav-link form-inline" %>
           <%= link_to 'All Ideas |', ideas_path, class: "nav-item nav-link form-inline" %>
           <% if user_signed_in? %>
             <span class="nav-item  form-inline"> Hello&nbsp<%= current_user.full_name %> |</span>
