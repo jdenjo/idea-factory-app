@@ -1,0 +1,18 @@
+<% @ideas.each do |idea| %>
+    <div class="idea-card">
+      <div class="idea-title">
+        <i class="plus fas fa-plus"></i>
+        <%= link_to idea.title, idea_path(idea.id)  %> 
+      </div>
+      <div class="idea-body" style="display: none">
+
+        <%= idea.body %>
+        <br>
+        <small>
+          Submitted by <%= idea.user&.full_name || 'DELETED' %>
+          Created <%= time_ago_in_words(idea.created_at) %> ago
+        </small>
+      </div>
+    </div>
+     <hr>
+<% end %>
