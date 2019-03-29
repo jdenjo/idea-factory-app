@@ -25,11 +25,11 @@ PASSWORD = "supersecret"
 end
 
 User.create(
-  first_name: "Dean",
-  last_name: "Enjo",
-  email: "jdenjo@gmail.com",
-  password: "a",
-  is_admin?: false,
+  first_name: "John",
+  last_name: "Snow",
+  email: "js@winterfell.gov",
+  password: "supersecret",
+  is_admin?: true,
 )
 
 users = User.all
@@ -37,7 +37,7 @@ users = User.all
 50.times do
   created_at = Faker::Date.backward(365 * 5)
   q = Idea.create(
-    title: Faker::Cannabis.strain,
+    title: "#{(Faker::Company.buzzword).capitalize} #{Faker::Company.industry} Business Idea",
     body: Faker::Hipster.paragraph,
     created_at: created_at,
     updated_at: created_at,

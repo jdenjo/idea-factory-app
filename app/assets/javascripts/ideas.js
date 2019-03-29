@@ -10,7 +10,7 @@
 
 
 document.addEventListener('DOMContentLoaded', (event) => {
-    document.querySelectorAll('.plus').forEach((node) =>
+    document.querySelectorAll('.fa-plus-square').forEach((node) =>
           node.addEventListener('click', (event) => {
             if (event.target.parentElement.parentElement.children[1].style.display == "none"){
                 event.target.parentElement.parentElement.children[1].style.display = "block"
