@@ -11,37 +11,38 @@
 </head>
 <body>
   <header>
-  <div class="top-nav">
-      <nav class="navbar navbar-expand-lg">
-        <a class="nav-item nav-link form-inline"" href="/">
-        <div class="brand">
-          <i class="far fa-lightbulb"></i> STARTUP IDEA FACTORY
+
+      <div class="top-nav" style="display: flex; justify-content: space-between;align-items:center">
+        <div >
+        
+            <a class="nav-item nav-link form-inline"" href="/">
+              <div class="brand">
+                <i class="far fa-lightbulb"></i> STARTUP IDEA FACTORY
+              </div>
+            </a>
+          
         </div>
-
-        </a>
-        <ul class="navbar-nav ml-auto">
-          <%= link_to 'New Idea  |', new_idea_path, class: "nav-item nav-link form-inline" %>
-          <%= link_to 'All Ideas |', ideas_path, class: "nav-item nav-link form-inline" %>
-          <% if user_signed_in? %>
-            <span class="nav-item  form-inline"> Hello&nbsp<%= current_user.full_name %> |</span>
-            <%= link_to "Sign Out", sessions_path, method: :delete, data: {confirm: "Are you sure you want to sign out?"}, class: "nav-item nav-link form-inline" %>
-          <% else %>
-            <%= link_to "Sign In |", new_sessions_path, class: "nav-item nav-link form-inline" %>
-            <%= link_to "Sign Up", new_user_path, class: "nav-item nav-link form-inline" %>
-          <% end %>
-        </ul>
-      </nav>
-
+        <div >
+          <ul class="navbar-nav ml-auto">
+            <%= link_to 'New Idea  |', new_idea_path, class: "nav-item nav-link form-inline" %>
+            <%= link_to 'All Ideas |', ideas_path, class: "nav-item nav-link form-inline" %>
+            <% if user_signed_in? %>
+              <span class="nav-item  form-inline"> Hello&nbsp<%= current_user.full_name %> |</span>
+              <%= link_to "Sign Out", sessions_path, method: :delete, data: {confirm: "Are you sure you want to sign out?"}, class: "nav-item nav-link form-inline" %>
+            <% else %>
+              <%= link_to "Sign In |", new_sessions_path, class: "nav-item nav-link form-inline" %>
+              <%= link_to "Sign Up", new_user_path, class: "nav-item nav-link form-inline" %>
+            <% end %>
+          </ul>
+        </div>
       </div>
-  </header>
 
+  </header>
   <% if @root %>
-  <div class="header2">
-  <% else%>
-   <div class="container" >
- 
- <% end %>
- 
+    <div class="header2">
+    <% else%>
+      <div class="container" >
+      <% end %>
       <% flash.each do |type, message| %>
         <div class="alert alert-<%= type %>">
           <%= message %>
@@ -49,11 +50,7 @@
       <% end %>
       <%= yield %>
     </div>
-
-
-
-</div> 
-
+  </div>
 </main>
 </body>
 </html>
