@@ -1,3 +1,4 @@
+ <div class="formCenter">
  <%= form_with(model: @idea, local: true ) do |form| %>
   <div class="form-group">
   <% if @idea.errors.present? %>
@@ -23,4 +24,4 @@
   <%= form.submit "Create Idea", class: "btn btn-lg btn-outline-dark" %>
 </div>
   <% end %>
-
+</div>

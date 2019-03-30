@@ -1,4 +1,5 @@
-<div class="article-contents">
+<div class="ideaShow">
+
 <div class="idea-title"><%= @idea.title %></div>
 
 <div class="idea-body"><%= @idea.body %>
@@ -38,7 +39,7 @@
      <%= f.text_area(
        :body,
        cols: 50,
-       rows: 5,
+       rows: 2,
        placeholder: "What are your thoughts?",
        class: "form-control"
      ) %>
